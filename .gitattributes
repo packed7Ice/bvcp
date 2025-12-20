@@ -1,2 +1,95 @@
-# Auto detect text files and perform LF normalization
+# BVCP .gitattributes
+# 行末コード正規化とバイナリファイル検出
+
+# =========================
+# テキストファイル正規化
+# =========================
 * text=auto
+
+# 明示的なテキストファイル
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+
+# ソースコード
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.rs text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.svg text eol=lf
+*.sql text eol=lf
+
+# 設定ファイル
+*.sh text eol=lf
+*.bash text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+Dockerfile text eol=lf
+Makefile text eol=lf
+
+# =========================
+# バイナリファイル
+# =========================
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.avif binary
+
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.flac binary
+
+*.mp4 binary
+*.webm binary
+*.mov binary
+*.avi binary
+
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.rar binary
+
+*.pdf binary
+*.psd binary
+*.ai binary
+
+# =========================
+# 差分表示設定
+# =========================
+*.md diff=markdown
+*.ts diff=typescript
+*.tsx diff=typescript
+*.rs diff=rust
+
+# =========================
+# Linguist（GitHub言語統計）
+# =========================
+# 生成ファイルを除外
+*.lock linguist-generated=true
+dist/** linguist-generated=true
+build/** linguist-generated=true
+
+# ドキュメントを除外
+docs/** linguist-documentation=true

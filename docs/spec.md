@@ -638,29 +638,29 @@ BVCP は Git を**置き換える**のではなく、**補完する**位置づ�
 
 ## 15. 実装開始までの手順（Next Actions）
 
-### Phase 0: リポジトリ準備（優先度: 最高）
+### Phase 0: リポジトリ準備（優先度: 最高）✅
 
-- [ ] GitHub リポジトリ作成（Public）
+- [x] GitHub リポジトリ作成（Public）
 - [x] LICENSE ファイル追加（Apache-2.0）
-- [ ] README.md 更新（プロジェクト概要）
-- [ ] `.gitignore` 設定
-- [ ] `.gitattributes` 設定
-- [ ] Issue / PR テンプレート追加
-- [ ] 本仕様書（`docs/spec.md`）配置
+- [x] README.md 更新（プロジェクト概要）
+- [x] `.gitignore` 設定
+- [x] `.gitattributes` 設定
+- [x] Issue / PR テンプレート追加
+- [x] 本仕様書（`docs/spec.md`）配置
 
-### Phase 1: 開発環境構築（優先度: 高）
+### Phase 1: 開発環境構築（優先度: 高）✅
 
-- [ ] monorepo 構造の作成
-  - [ ] `apps/`, `packages/`, `infra/`, `docs/` ディレクトリ
-  - [ ] npm workspaces 設定（`package.json`）
-  - [ ] Cargo workspace 設定（`Cargo.toml`）
-- [ ] Docker Compose 環境構築
-  - [ ] PostgreSQL
-  - [ ] Redis
-  - [ ] MinIO
-- [ ] GitHub Actions CI 設定
-  - [ ] Lint ワークフロー
-  - [ ] テストワークフロー
+- [x] monorepo 構造の作成
+  - [x] `apps/`, `packages/`, `infra/`, `docs/` ディレクトリ
+  - [x] npm workspaces 設定（`package.json`）
+  - [x] Cargo workspace 設定（`Cargo.toml`）
+- [x] Docker Compose 環境構築
+  - [x] PostgreSQL
+  - [x] Redis
+  - [x] MinIO
+- [x] GitHub Actions CI 設定
+  - [x] Lint ワークフロー
+  - [x] テストワークフロー
 
 ### Phase 2: MVP コア実装（優先度: 高）
 

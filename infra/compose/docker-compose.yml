@@ -1,0 +1,67 @@
+# BVCP 開発環境 Docker Compose
+# PostgreSQL, Redis, MinIO を提供
+
+services:
+  # PostgreSQL データベース
+  postgres:
+    image: postgres:16-alpine
+    container_name: bvcp-postgres
+    environment:
+      POSTGRES_USER: bvcp
+      POSTGRES_PASSWORD: bvcp_dev_password
+      POSTGRES_DB: bvcp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bvcp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Redis キャッシュ・キュー
+  redis:
+    image: redis:7-alpine
+    container_name: bvcp-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # MinIO S3 互換ストレージ
+  minio:
+    image: minio/minio:latest
+    container_name: bvcp-minio
+    environment:
+      MINIO_ROOT_USER: bvcp_minio
+      MINIO_ROOT_PASSWORD: bvcp_minio_password
+    ports:
+      - "9000:9000"  # API
+      - "9001:9001"  # Console
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  redis-data:
+  minio-data:
+
+networks:
+  default:
+    name: bvcp-network

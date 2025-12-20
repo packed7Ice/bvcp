@@ -1,0 +1,34 @@
+[workspace]
+resolver = "2"
+members = [
+    "packages/core",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["Yorikawa Aise"]
+repository = "https://github.com/packed7Ice/bvcp"
+
+[workspace.dependencies]
+# ハッシュ計算
+blake3 = "1.5"
+
+# ファイル監視
+notify = "6.1"
+
+# 非同期ランタイム
+tokio = { version = "1.35", features = ["full"] }
+
+# シリアライズ
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# エラーハンドリング
+anyhow = "1.0"
+thiserror = "1.0"
+
+# ロギング
+tracing = "0.1"
+tracing-subscriber = "0.3"
