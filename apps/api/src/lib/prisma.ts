@@ -12,12 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//! BVCP Core Library
-//!
-//! バイナリファイルのハッシュ計算、ファイル監視、同期処理を提供するコアライブラリ。
+import { PrismaClient } from "@prisma/client";
 
-pub mod hash;
-pub mod watcher;
+export const prisma = new PrismaClient();
 
-pub use hash::{compute_blake3, compute_blake3_bytes};
-pub use watcher::{FileEvent, FileEventKind, FileWatcher, WatcherError};
+// プロセス終了時にクリーンアップ
+process.on("beforeExit", async () => {
+  await prisma.$disconnect();
+});

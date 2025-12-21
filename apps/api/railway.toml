@@ -1,0 +1,10 @@
+# Railway 設定
+# Railway は package.json の scripts を自動検出するため、
+# nixpacks.toml または Dockerfile を使用することを推奨
+
+# この設定ファイルを使う代わりに、Railway ダッシュボードで以下を設定:
+# - Build Command: npm ci && npm run build
+# - Start Command: npm run db:deploy && npm start
+# - Health Check Path: /health
+
+# または nixpacks.toml を使用（より Railway 推奨）

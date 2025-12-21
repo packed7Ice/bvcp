@@ -12,12 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//! BVCP Core Library
-//!
-//! バイナリファイルのハッシュ計算、ファイル監視、同期処理を提供するコアライブラリ。
+import type { FastifyPluginAsync } from "fastify";
 
-pub mod hash;
-pub mod watcher;
+export const healthRoutes: FastifyPluginAsync = async (fastify) => {
+  fastify.get("/health", async () => {
+    return {
+      status: "ok",
+      timestamp: new Date().toISOString(),
+      service: "bvcp-api",
+    };
+  });
 
-pub use hash::{compute_blake3, compute_blake3_bytes};
-pub use watcher::{FileEvent, FileEventKind, FileWatcher, WatcherError};
+  fastify.get("/", async () => {
+    return {
+      name: "BVCP API",
+      version: "0.0.1",
+      docs: "/api/docs",
+    };
+  });
+};
