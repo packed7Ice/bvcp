@@ -49,9 +49,11 @@ jobs:
           workspaces: packages/core
 
       - name: Check formatting
-        run: cargo fmt --all -- --check
+        working-directory: packages/core
+        run: cargo fmt -- --check
 
       - name: Run clippy
+        working-directory: packages/core
         run: cargo clippy --all-targets --all-features -- -D warnings
 
   # TypeScript Test
@@ -91,6 +93,7 @@ jobs:
           workspaces: packages/core
 
       - name: Run tests
+        working-directory: packages/core
         run: cargo test --all-features
 
   # Build Check
@@ -122,4 +125,5 @@ jobs:
         run: npm run build
 
       - name: Build Rust packages
+        working-directory: packages/core
         run: cargo build --release
