@@ -45,8 +45,8 @@ services:
       MINIO_ROOT_USER: bvcp_minio
       MINIO_ROOT_PASSWORD: bvcp_minio_password
     ports:
-      - "9000:9000"  # API
-      - "9001:9001"  # Console
+      - "9000:9000" # API
+      - "9001:9001" # Console
     volumes:
       - minio-data:/data
     command: server /data --console-address ":9001"

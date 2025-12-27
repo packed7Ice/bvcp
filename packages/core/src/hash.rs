@@ -40,7 +40,7 @@ use anyhow::Result;
 pub fn compute_blake3<P: AsRef<Path>>(path: P) -> Result<String> {
     let mut file = std::fs::File::open(path)?;
     let mut hasher = blake3::Hasher::new();
-    
+
     let mut buffer = [0u8; 65536]; // 64KB buffer
     loop {
         let bytes_read = file.read(&mut buffer)?;
@@ -49,7 +49,7 @@ pub fn compute_blake3<P: AsRef<Path>>(path: P) -> Result<String> {
         }
         hasher.update(&buffer[..bytes_read]);
     }
-    
+
     Ok(hasher.finalize().to_hex().to_string())
 }
 
@@ -74,10 +74,10 @@ mod tests {
     fn test_compute_blake3_bytes() {
         let data = b"Hello, BVCP!";
         let hash = compute_blake3_bytes(data);
-        
+
         // BLAKE3 ハッシュは常に64文字
         assert_eq!(hash.len(), 64);
-        
+
         // 同じ入力は同じハッシュを生成
         let hash2 = compute_blake3_bytes(data);
         assert_eq!(hash, hash2);
@@ -87,7 +87,7 @@ mod tests {
     fn test_different_input_different_hash() {
         let hash1 = compute_blake3_bytes(b"Hello");
         let hash2 = compute_blake3_bytes(b"World");
-        
+
         assert_ne!(hash1, hash2);
     }
 }

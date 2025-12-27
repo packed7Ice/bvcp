@@ -18,4 +18,4 @@
  * 型定義、ユーティリティ、共通ロジックを提供
  */
 
-export * from "./types";
+export * from "./types.js";

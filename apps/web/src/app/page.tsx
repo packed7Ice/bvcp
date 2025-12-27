@@ -6,9 +6,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.hero}>
         <h1 className={styles.title}>BVCP</h1>
-        <p className={styles.subtitle}>
-          Binary Version Control Platform
-        </p>
+        <p className={styles.subtitle}>Binary Version Control Platform</p>
         <p className={styles.description}>
           バイナリファイル向けバージョン管理プラットフォーム
         </p>
@@ -25,7 +23,9 @@ export default function Home() {
       <section className={styles.features}>
         <div className={styles.feature}>
           <h3>📁 バイナリ管理</h3>
-          <p>画像・音声・動画・3Dモデルなど、あらゆるバイナリファイルを効率的に管理</p>
+          <p>
+            画像・音声・動画・3Dモデルなど、あらゆるバイナリファイルを効率的に管理
+          </p>
         </div>
         <div className={styles.feature}>
           <h3>🔍 ビジュアル差分</h3>

@@ -2,10 +2,10 @@
 
 ## 構成
 
-| コンポーネント | サービス | プラン |
-|--------------|---------|--------|
-| Web | Vercel | 無料 |
-| API + DB + Redis | Railway | 30日トライアル（$5） |
+| コンポーネント   | サービス | プラン               |
+| ---------------- | -------- | -------------------- |
+| Web              | Vercel   | 無料                 |
+| API + DB + Redis | Railway  | 30日トライアル（$5） |
 
 ---
 
@@ -59,6 +59,7 @@ npx vercel
 ```
 
 プロンプトに従って設定：
+
 - Scope: 個人アカウント
 - Link to existing project: No
 - Project name: `bvcp-web`
@@ -97,17 +98,17 @@ curl https://bvcp-api-production.up.railway.app/health
 
 ### Railway (API)
 
-| 変数 | 値 |
-|------|-----|
-| `DATABASE_URL` | PostgreSQL 接続文字列 |
-| `JWT_SECRET` | ランダム文字列（32文字以上） |
-| `NODE_ENV` | `production` |
-| `PORT` | `3001` |
+| 変数           | 値                           |
+| -------------- | ---------------------------- |
+| `DATABASE_URL` | PostgreSQL 接続文字列        |
+| `JWT_SECRET`   | ランダム文字列（32文字以上） |
+| `NODE_ENV`     | `production`                 |
+| `PORT`         | `3001`                       |
 
 ### Vercel (Web)
 
-| 変数 | 値 |
-|------|-----|
+| 変数                  | 値                 |
+| --------------------- | ------------------ |
 | `NEXT_PUBLIC_API_URL` | Railway API の URL |
 
 ---

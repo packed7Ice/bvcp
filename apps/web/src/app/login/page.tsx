@@ -54,7 +54,9 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.field}>
-            <label htmlFor="email" className="label">メールアドレス</label>
+            <label htmlFor="email" className="label">
+              メールアドレス
+            </label>
             <input
               id="email"
               type="email"
@@ -66,7 +68,9 @@ export default function LoginPage() {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="password" className="label">パスワード</label>
+            <label htmlFor="password" className="label">
+              パスワード
+            </label>
             <input
               id="password"
               type="password"

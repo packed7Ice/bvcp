@@ -31,15 +31,15 @@ BVCP は、Git が不得意とするバイナリファイルの差分管理・�
 
 ## 技術スタック
 
-| 領域 | 技術 |
-|------|------|
-| コア | Rust (BLAKE3) |
-| Desktop | Tauri + React + TypeScript |
-| Web | Next.js (App Router) + TypeScript |
-| Backend | Fastify + TypeScript |
-| DB | PostgreSQL |
-| Cache/Queue | Redis |
-| Storage | S3互換 (MinIO) / Google Drive |
+| 領域        | 技術                              |
+| ----------- | --------------------------------- |
+| コア        | Rust (BLAKE3)                     |
+| Desktop     | Tauri + React + TypeScript        |
+| Web         | Next.js (App Router) + TypeScript |
+| Backend     | Fastify + TypeScript              |
+| DB          | PostgreSQL                        |
+| Cache/Queue | Redis                             |
+| Storage     | S3互換 (MinIO) / Google Drive     |
 
 ## リポジトリ構成
 

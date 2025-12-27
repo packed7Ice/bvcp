@@ -42,7 +42,10 @@ export const authRoutes: FastifyPluginAsync = async (fastify) => {
       if (existingUser) {
         return reply.status(400).send({
           success: false,
-          error: { code: "USER_EXISTS", message: "このメールアドレスは既に登録されています" },
+          error: {
+            code: "USER_EXISTS",
+            message: "このメールアドレスは既に登録されています",
+          },
         });
       }
 
@@ -98,7 +101,10 @@ export const authRoutes: FastifyPluginAsync = async (fastify) => {
       if (!user) {
         return reply.status(401).send({
           success: false,
-          error: { code: "INVALID_CREDENTIALS", message: "メールアドレスまたはパスワードが正しくありません" },
+          error: {
+            code: "INVALID_CREDENTIALS",
+            message: "メールアドレスまたはパスワードが正しくありません",
+          },
         });
       }
 
@@ -108,7 +114,10 @@ export const authRoutes: FastifyPluginAsync = async (fastify) => {
       if (!isValid) {
         return reply.status(401).send({
           success: false,
-          error: { code: "INVALID_CREDENTIALS", message: "メールアドレスまたはパスワードが正しくありません" },
+          error: {
+            code: "INVALID_CREDENTIALS",
+            message: "メールアドレスまたはパスワードが正しくありません",
+          },
         });
       }
 
@@ -139,24 +148,28 @@ export const authRoutes: FastifyPluginAsync = async (fastify) => {
   });
 
   // 現在のユーザー取得
-  fastify.get("/me", {
-    onRequest: [async (request) => await request.jwtVerify()],
-  }, async (request) => {
-    const { userId } = request.user as { userId: string };
+  fastify.get(
+    "/me",
+    {
+      onRequest: [async (request) => await request.jwtVerify()],
+    },
+    async (request) => {
+      const { userId } = request.user as { userId: string };
 
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        createdAt: true,
-      },
-    });
+      const user = await prisma.user.findUnique({
+        where: { id: userId },
+        select: {
+          id: true,
+          email: true,
+          name: true,
+          createdAt: true,
+        },
+      });
 
-    return {
-      success: true,
-      data: user,
-    };
-  });
+      return {
+        success: true,
+        data: user,
+      };
+    },
+  );
 };

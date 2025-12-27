@@ -16,4 +16,4 @@
  * BVCP React UI コンポーネントライブラリ
  */
 
-export { Button } from "./components/Button";
+export { Button } from "./components/Button.js";

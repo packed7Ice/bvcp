@@ -86,11 +86,17 @@ export default function RepositoryDetailPage() {
     return (
       <div className={styles.container}>
         <header className={styles.header}>
-          <Link href="/dashboard" className={styles.logo}>BVCP</Link>
+          <Link href="/dashboard" className={styles.logo}>
+            BVCP
+          </Link>
         </header>
         <main className={styles.main}>
-          <p style={{ color: "var(--secondary)" }}>{error || "リポジトリが見つかりません"}</p>
-          <Link href="/dashboard" style={{ marginTop: "1rem" }}>ダッシュボードに戻る</Link>
+          <p style={{ color: "var(--secondary)" }}>
+            {error || "リポジトリが見つかりません"}
+          </p>
+          <Link href="/dashboard" style={{ marginTop: "1rem" }}>
+            ダッシュボードに戻る
+          </Link>
         </main>
       </div>
     );
@@ -99,7 +105,9 @@ export default function RepositoryDetailPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link href="/dashboard" className={styles.logo}>BVCP</Link>
+        <Link href="/dashboard" className={styles.logo}>
+          BVCP
+        </Link>
       </header>
 
       <main className={styles.main}>
@@ -118,8 +126,10 @@ export default function RepositoryDetailPage() {
         </div>
 
         <section style={{ marginTop: "2rem" }}>
-          <h2 style={{ fontSize: "1.125rem", marginBottom: "1rem" }}>ファイル履歴</h2>
-          
+          <h2 style={{ fontSize: "1.125rem", marginBottom: "1rem" }}>
+            ファイル履歴
+          </h2>
+
           {repository.fileVersions.length === 0 ? (
             <div className={styles.empty}>
               <p>ファイル履歴がありません</p>
@@ -131,19 +141,34 @@ export default function RepositoryDetailPage() {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                  <th style={{ textAlign: "left", padding: "0.75rem 0" }}>パス</th>
-                  <th style={{ textAlign: "right", padding: "0.75rem 0" }}>サイズ</th>
-                  <th style={{ textAlign: "right", padding: "0.75rem 0" }}>日時</th>
+                  <th style={{ textAlign: "left", padding: "0.75rem 0" }}>
+                    パス
+                  </th>
+                  <th style={{ textAlign: "right", padding: "0.75rem 0" }}>
+                    サイズ
+                  </th>
+                  <th style={{ textAlign: "right", padding: "0.75rem 0" }}>
+                    日時
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {repository.fileVersions.map((file) => (
-                  <tr key={file.id} style={{ borderBottom: "1px solid var(--border)" }}>
+                  <tr
+                    key={file.id}
+                    style={{ borderBottom: "1px solid var(--border)" }}
+                  >
                     <td style={{ padding: "0.75rem 0" }}>{file.path}</td>
                     <td style={{ textAlign: "right", padding: "0.75rem 0" }}>
                       {formatBytes(Number(file.size))}
                     </td>
-                    <td style={{ textAlign: "right", padding: "0.75rem 0", color: "var(--secondary)" }}>
+                    <td
+                      style={{
+                        textAlign: "right",
+                        padding: "0.75rem 0",
+                        color: "var(--secondary)",
+                      }}
+                    >
                       {new Date(file.createdAt).toLocaleString("ja-JP")}
                     </td>
                   </tr>

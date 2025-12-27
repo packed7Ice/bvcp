@@ -76,7 +76,10 @@ export default function Dashboard() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>リポジトリ</h1>
-        <button onClick={() => setShowCreateModal(true)} className="btn btn-primary">
+        <button
+          onClick={() => setShowCreateModal(true)}
+          className="btn btn-primary"
+        >
           + 新規作成
         </button>
       </div>
@@ -84,7 +87,10 @@ export default function Dashboard() {
       {repositories.length === 0 ? (
         <div className={styles.empty}>
           <p>リポジトリがありません</p>
-          <button onClick={() => setShowCreateModal(true)} className="btn btn-primary">
+          <button
+            onClick={() => setShowCreateModal(true)}
+            className="btn btn-primary"
+          >
             最初のリポジトリを作成
           </button>
         </div>
@@ -94,7 +100,9 @@ export default function Dashboard() {
             <div key={repo.id} className={styles.card}>
               <h3>{repo.name}</h3>
               <p>{repo.description || "説明なし"}</p>
-              <span>{new Date(repo.createdAt).toLocaleDateString("ja-JP")}</span>
+              <span>
+                {new Date(repo.createdAt).toLocaleDateString("ja-JP")}
+              </span>
             </div>
           ))}
         </div>
@@ -126,7 +134,10 @@ export default function Dashboard() {
               <button onClick={createRepository} className="btn btn-primary">
                 作成
               </button>
-              <button onClick={() => setShowCreateModal(false)} className="btn btn-secondary">
+              <button
+                onClick={() => setShowCreateModal(false)}
+                className="btn btn-secondary"
+              >
                 キャンセル
               </button>
             </div>

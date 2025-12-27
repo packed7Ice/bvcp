@@ -66,7 +66,9 @@ export default function DashboardPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link href="/dashboard" className={styles.logo}>BVCP</Link>
+        <Link href="/dashboard" className={styles.logo}>
+          BVCP
+        </Link>
         <div className={styles.userMenu}>
           <span>{user?.name}</span>
           <button onClick={handleLogout} className="btn btn-secondary">

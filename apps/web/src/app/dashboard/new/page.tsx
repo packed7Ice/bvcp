@@ -52,7 +52,9 @@ export default function NewRepositoryPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link href="/dashboard" className={styles.logo}>BVCP</Link>
+        <Link href="/dashboard" className={styles.logo}>
+          BVCP
+        </Link>
       </header>
 
       <main className={styles.main}>
@@ -63,7 +65,9 @@ export default function NewRepositoryPage() {
 
           <form onSubmit={handleSubmit} className={formStyles.form}>
             <div className={formStyles.field}>
-              <label htmlFor="name" className="label">リポジトリ名</label>
+              <label htmlFor="name" className="label">
+                リポジトリ名
+              </label>
               <input
                 id="name"
                 type="text"
@@ -75,7 +79,9 @@ export default function NewRepositoryPage() {
             </div>
 
             <div className={formStyles.field}>
-              <label htmlFor="description" className="label">説明（任意）</label>
+              <label htmlFor="description" className="label">
+                説明（任意）
+              </label>
               <textarea
                 id="description"
                 className="input"
@@ -87,7 +93,11 @@ export default function NewRepositoryPage() {
             </div>
 
             <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem" }}>
-              <button type="submit" className="btn btn-primary" disabled={loading}>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={loading}
+              >
                 {loading ? "作成中..." : "作成する"}
               </button>
               <Link href="/dashboard" className="btn btn-secondary">

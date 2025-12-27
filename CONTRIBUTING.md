@@ -36,6 +36,7 @@ docs(spec): update storage design section
 ```
 
 **type の種類:**
+
 - `feat`: 新機能
 - `fix`: バグ修正
 - `docs`: ドキュメント

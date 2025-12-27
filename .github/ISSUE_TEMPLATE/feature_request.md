@@ -3,7 +3,7 @@ name: 機能リクエスト
 about: 新機能や改善を提案する
 title: "[Feature] "
 labels: feature
-assignees: ''
+assignees: ""
 ---
 
 ## 概要
