@@ -1,6 +1,9 @@
 # Railway 用 Dockerfile（apps/api をルートとしてビルド）
 FROM node:20-alpine AS builder
 
+# OpenSSL をインストール（Prisma 用）
+RUN apk add --no-cache openssl libc6-compat
+
 WORKDIR /app
 
 # Copy package files
@@ -21,6 +24,9 @@ RUN npm run build
 
 # Production stage
 FROM node:20-alpine AS runner
+
+# OpenSSL をインストール（Prisma 用）
+RUN apk add --no-cache openssl libc6-compat
 
 WORKDIR /app
 
