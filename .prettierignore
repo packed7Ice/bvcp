@@ -1,0 +1,11 @@
+# Tauri 自動生成ファイル
+apps/desktop/src-tauri/gen/
+apps/desktop/src-tauri/target/
+
+# ビルド出力
+**/dist/
+**/node_modules/
+**/.next/
+
+# ロックファイル
+package-lock.json
